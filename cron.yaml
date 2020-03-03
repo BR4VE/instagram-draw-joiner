@@ -1,0 +1,15 @@
+cron:
+  - description: "daily draw joining 12:00"
+    url: "/join_draws"
+    schedule: every day 12:00
+    timezone: Turkey
+
+  - description: "daily draw joining 17:30"
+    url: "/join_draws"
+    schedule: every day 17:30
+    timezone: Turkey
+
+  - description: "daily draw joining 23:00"
+    url: "/join_draws"
+    schedule: every day 23:00
+    timezone: Turkey
