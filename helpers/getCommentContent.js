@@ -31,7 +31,7 @@ const getCommentContent = () => {
     "Bir sefer daha deneyelim",
     "Bu sefer çıkacak gibi"
   ];
-  const midMentions = ["@johndoe7489", "@donaldkekamca", "@erensarikulak"];
+  const midMentions = ["@ardaibin", "@donaldkekamca", "@erensarikulak"];
   const afterfixes = [
     "sizde goz atın",
     "göz atın",
@@ -74,7 +74,5 @@ const getCommentContent = () => {
 
   return prefix + " " + midMention + " " + afterfix;
 };
-
-console.log(getCommentContent());
 
 module.exports = getCommentContent;

@@ -4,12 +4,15 @@ const collectNewestDrawPostUrls = async (url, page) => {
   });
 
   // get the newests ones
-  await page.waitFor(() => document.querySelectorAll("h2").length);
+  try {
+    await page.waitFor(() => document.querySelectorAll("h2").length);
+  } catch (error) {
+    console.log("cannot wait for en yeniler heading");
+  }
+
   const postUrls = await page.evaluate(() => {
     const h2s = document.querySelectorAll("h2");
     const h2 = [...h2s].filter(h2 => h2.innerText === "En yeniler")[0];
-
-    console.log(h2);
     // get the next sibling of it (all newest content)
     const newestContainer = h2.nextSibling.children[0];
     const postRows = newestContainer.children;

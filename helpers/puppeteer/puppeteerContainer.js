@@ -7,6 +7,13 @@ const puppeteerContainer = func => async () => {
   });
   const page = await browser.newPage();
 
+  // set it to Turkish
+  // it becemos English on the server side, if we dont provde it
+  // and most of our work doesn't work
+  await page.setExtraHTTPHeaders({
+    "Accept-Language": "tr"
+  });
+
   // run the inner func
   await func(page, browser);
 
