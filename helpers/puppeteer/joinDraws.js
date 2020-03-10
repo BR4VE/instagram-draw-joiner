@@ -115,13 +115,15 @@ const joinDraws = async (postUrls, page) => {
     const followUrls = await page.evaluate(() => {
       // get the second span of the page
       const secSpan = document.querySelectorAll("ul span")[1];
-      //
-      return [...secSpan.children]
-        .filter(
-          child =>
-            child.tagName === "A" && child.classList.contains("notranslate")
-        )
-        .map(child => child.href);
+      // if secSpan exists
+      return !secSpan
+        ? []
+        : [...secSpan.children]
+            .filter(
+              child =>
+                child.tagName === "A" && child.classList.contains("notranslate")
+            )
+            .map(child => child.href);
     });
 
     console.log("These accounts must be followed ", followUrls);
