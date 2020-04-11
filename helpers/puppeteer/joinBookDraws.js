@@ -5,11 +5,12 @@ const collectNewestDrawPostUrls = require("./collectNewestDrawPostUrls");
 
 const joinDraws = require("./joinDraws");
 
-const joinBookDraws = async page => {
+const joinBookDraws = async (page) => {
   // authenticate
   await instagramAuthentication(page);
   const postUrls = await collectNewestDrawPostUrls(
-    "https://www.instagram.com/explore/tags/kitapcekilisi/?hl=tr",
+    // Change the url as you want
+    "https://www.instagram.com/explore/tags/kitapcekilisi/?hl=en",
     page
   );
   await joinDraws(postUrls, page);

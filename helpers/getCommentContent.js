@@ -7,6 +7,13 @@ function shuffle(a) {
   return a;
 }
 
+/*
+  These sentences are written to generate a comment content randomly
+  For example:
+  Katıl @somebody @someOtherBody, @someOtherOtherBody sizde göz atın
+  
+  Change them to the language you want
+*/
 const getCommentContent = () => {
   const prefixes = [
     "Katıl",
@@ -29,7 +36,7 @@ const getCommentContent = () => {
     "Şansım var mı bilemiyorum",
     "Deniyoruz yine",
     "Bir sefer daha deneyelim",
-    "Bu sefer çıkacak gibi"
+    "Bu sefer çıkacak gibi",
   ];
   const midMentions = ["@ardaibin", "@donaldkekamca", "@erensarikulak"];
   const afterfixes = [
@@ -65,7 +72,7 @@ const getCommentContent = () => {
     "kazanırsanız telefonlara dönmemezlik yapmayın :)",
     "kazanırsanız bana verirsiniz :)",
     "şansımız daha fazla bu sefer",
-    "tutturuyoruz bu sefer"
+    "tutturuyoruz bu sefer",
   ];
 
   let prefix = prefixes[Math.floor(Math.random() * prefixes.length)];

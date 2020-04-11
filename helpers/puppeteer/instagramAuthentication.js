@@ -1,20 +1,17 @@
-const instagramAuthentication = async page => {
-  page.on("console", msg => {
+const { CLOSE_BUTTON, LOGIN_URL } = require("../../config/instagram.config");
+
+const instagramAuthentication = async (page) => {
+  page.on("console", (msg) => {
     for (let i = 0; i < msg._args.length; ++i) console.log(`${msg._args[i]}`);
   });
 
-  await page.goto(
-    "https://www.instagram.com/accounts/login/?hl=tr&source=auth_switcher",
-    { waitUntil: "networkidle0" }
-  );
-
-  console.log("Going to instagram login page");
+  await page.goto(LOGIN_URL, { waitUntil: "networkidle0" });
 
   // wait until the input elements full loaded
   try {
     await page.waitFor(() => document.querySelectorAll("input").length);
   } catch (err) {
-    console.log("cannot wait inputs at login");
+    console.log(err);
   }
 
   // type the credentials
@@ -46,7 +43,7 @@ const instagramAuthentication = async page => {
     const buttons = document.querySelectorAll("button");
     // the text on the button might change based on the language
     const closeButton = [...buttons].filter(
-      button => button.innerText === "Şimdi Değil"
+      (button) => button.innerText === CLOSE_BUTTON
     )[0];
 
     closeButton.click();

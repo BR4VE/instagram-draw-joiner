@@ -1,17 +1,18 @@
 const puppeteer = require("puppeteer");
 
-const puppeteerContainer = func => async () => {
+const { LANGUAGE } = require("../../config/instagram.config");
+
+const puppeteerContainer = (func) => async () => {
   const browser = await puppeteer.launch({
     headless: process.env.NODE_ENV === "production",
-    args: ["--no-sandbox"]
+    args: ["--no-sandbox"],
   });
   const page = await browser.newPage();
 
-  // set it to Turkish
-  // it becemos English on the server side, if we dont provde it
-  // and most of our work doesn't work
+  // set it to LANGUAGE
+
   await page.setExtraHTTPHeaders({
-    "Accept-Language": "tr"
+    "Accept-Language": LANGUAGE,
   });
 
   // run the inner func
