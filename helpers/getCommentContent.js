@@ -38,7 +38,7 @@ const getCommentContent = () => {
     "Bir sefer daha deneyelim",
     "Bu sefer çıkacak gibi",
   ];
-  const midMentions = ["@ardaibin", "@donaldkekamca", "@erensarikulak"];
+  const midMentions = ["@mertbtmz", "@mertbtmz", "@mertbtmz"];
   const afterfixes = [
     "sizde goz atın",
     "göz atın",
